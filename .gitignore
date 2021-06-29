@@ -1,0 +1,23 @@
+# IDEA project files
+.idea
+.vscode
+
+.env
+.mypy_cache
+venv
+
+*.DS_Store
+*.pyc
+__pycache__
+
+*/*/migrations/*
+!*/*/migrations/__init__.py
+
+# Ignore compiled translations
+*/*/LC_MESSAGES/*.mo
+
+# Local settings files:
+*local.py
+*local.sh
+
+terrapro_admin/local_settings.py
