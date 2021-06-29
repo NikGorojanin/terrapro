@@ -144,3 +144,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BOT_TOKEN = '357186124:AAEdOhyhP25bcCjcMUp3NprEuabjLNbw-qg'
+SECONDS_BETWEEN_SENDING_MESSAGE = 2
