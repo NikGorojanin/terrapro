@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@9a%a90@wyz%vmknay#wuz!@n6v6d)u)@kfkc#d^9t-z@b7ku9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,6 +82,7 @@ Q_CLUSTER = {
     'name': 'terrapro_admin',
     'workers': 2,
     'max_attempts': 1,
+    'ack_failures': True,
     'orm': 'default',  # Use Django's ORM + database for broker
 }
 
