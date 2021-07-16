@@ -28,6 +28,7 @@ class User(BaseModel):
     telegram_id = models.IntegerField(null=True, blank=True)
     first_name = models.CharField(verbose_name='Имя', max_length=100, null=True, blank=True)
     last_name = models.CharField(verbose_name='Фамилия', max_length=100, null=True, blank=True)
+    fio = models.CharField(verbose_name='ФИО', max_length=100, null=True, blank=True)
     telegram_username = models.CharField(verbose_name='Телеграм', max_length=100, null=True, blank=True)
     gender = models.CharField(verbose_name='Пол', choices=Gender.choices(), max_length=10, null=True, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -35,7 +36,7 @@ class User(BaseModel):
     language = models.CharField(verbose_name='Язык', choices=Language.choices(), max_length=10, null=True, blank=True)
     is_admin = models.IntegerField(default=0)
     phone = models.CharField(verbose_name='Телефон', max_length=100, null=True, blank=True)
-    id_1c = models.CharField(verbose_name='1C ID', max_length=100, unique=True, db_index=True)
+    id_1c = models.CharField(verbose_name='1C ID', max_length=100, null=True, blank=True)
 
     @classmethod
     def get_or_create(cls, id_1c, phone):

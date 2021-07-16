@@ -54,6 +54,26 @@ class Account(BaseModel):
     total_spent = models.FloatField(default=0.0)
     birthday = models.DateField(null=True, blank=True)
     id_1c = models.CharField(verbose_name='1C ID', max_length=100, unique=True, db_index=True)
+    barcode_img = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
         db_table = 'accounts'
+
+
+class AdditionalButton(BaseModel):
+    section_name = models.CharField(max_length=1000)
+    description_rus = models.CharField(max_length=1000)
+    description_uzb = models.CharField(max_length=1000)
+    description_eng = models.CharField(max_length=1000)
+    disposition = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = 'additional_buttons'
+
+
+class Activity(BaseModel):
+    button_name = models.CharField(max_length=1000)
+    user = models.ForeignKey(User, related_name='activities', on_delete=models.DO_NOTHING, null=True, blank=True)
+
+    class Meta:
+        db_table = 'activity'
