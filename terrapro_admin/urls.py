@@ -17,9 +17,14 @@ Including another URLconf
 from django.conf import settings
 from django.urls import path, include
 
+from .views import HomeView
+
 
 urlpatterns = [
     path('api/v1/', include([
         path('', include('api.urls', namespace='api')),
-    ]))
+    ])),
+
+    path('', HomeView.as_view(), name='home'),
+    path('accounts/', include('account.urls')),
 ]

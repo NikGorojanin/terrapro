@@ -6,7 +6,9 @@ from account.models import User
 
 class Post(BaseModel):
     is_published = models.BooleanField(default=False)
-    text = models.CharField(max_length=2000, null=True, blank=True)
+    text_rus = models.CharField(max_length=2000, null=True, blank=True)
+    text_eng = models.CharField(max_length=2000, null=True, blank=True)
+    text_uzb = models.CharField(max_length=2000, null=True, blank=True)
     tg_image_id = models.CharField(max_length=200, null=True, blank=True)
     tg_video_id = models.CharField(max_length=200, null=True, blank=True)
     tg_document_id = models.CharField(max_length=200, null=True, blank=True)
@@ -37,8 +39,10 @@ class Cite(BaseModel):
 
 
 class Branche(BaseModel):
-    address = models.CharField(max_length=500)
-    user = models.ForeignKey(User, related_name='branches', on_delete=models.DO_NOTHING)
+    address_rus = models.CharField(max_length=500)
+    address_eng = models.CharField(max_length=500, null=True, blank=True)
+    address_uzb = models.CharField(max_length=500, null=True, blank=True)
+    cites = models.ForeignKey(Cite, related_name='branches', on_delete=models.DO_NOTHING, null=True)
 
     class Meta:
         db_table = 'branches'

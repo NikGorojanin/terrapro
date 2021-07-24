@@ -13,7 +13,7 @@ class TelegramMailing:
         telegram_service = TelegramService()
 
         for data in mailing_data:
-            id_1c = data.get('1с_id')
+            id_1c = data.get('id')
             text = data.get('text')
 
             if not id_1c or not text or len(text) == 0:
