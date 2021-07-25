@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 class TelegramMailing:
     @classmethod
     def run_mailing(cls, mailing_data):
-
+        log.error(mailing_data)
         telegram_service = TelegramService()
 
         for data in mailing_data:
