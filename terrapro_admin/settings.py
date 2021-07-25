@@ -155,6 +155,60 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BOT_TOKEN = '357186124:AAEdOhyhP25bcCjcMUp3NprEuabjLNbw-qg'
 SECONDS_BETWEEN_SENDING_MESSAGE = 2
 
+LOG_DIR = os.path.join(BASE_DIR, 'log')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+          'format': '%(asctime)s; %(process)d; %(thread)d; %(levelname)s; %(name)s; %(message)s',  # noqa: E121, WPS323
+          'datefmt': '%Y-%m-%d %H:%M:%S',  # noqa: WPS323
+        },
+    },
+    'handlers': {
+        'error.log': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(LOG_DIR, 'error.log'),
+            'when': 'D',
+            'interval': 30,
+            'backupCount': 6,
+            'formatter': 'verbose',
+            'encoding': 'utf-8',
+        },
+        'debug.log': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(LOG_DIR, 'debug.log'),
+            'when': 'D',
+            'interval': 30,
+            'backupCount': 6,
+            'formatter': 'verbose',
+            'encoding': 'utf-8',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['error.log', 'debug.log'],
+        },
+        'django.db.backends': {
+            'handlers': ['error.log'],
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['error.log', 'debug.log'],
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['error.log', 'debug.log'],
+            'propagate': False,
+        },
+    },
+    'root': {
+        'handlers': ['debug.log'],
+        'level': 'INFO',
+    },
+}
 
 try:
     from .local_settings import *
