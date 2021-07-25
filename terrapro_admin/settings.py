@@ -191,18 +191,6 @@ LOGGING = {
         '': {
             'handlers': ['error.log', 'debug.log'],
         },
-        'django.db.backends': {
-            'handlers': ['error.log'],
-            'propagate': False,
-        },
-        'django.request': {
-            'handlers': ['error.log', 'debug.log'],
-            'propagate': False,
-        },
-        'django.server': {
-            'handlers': ['error.log', 'debug.log'],
-            'propagate': False,
-        },
     },
     'root': {
         'handlers': ['debug.log'],
