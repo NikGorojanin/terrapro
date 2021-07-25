@@ -21,14 +21,14 @@ class TelegramMailing:
             text = data.get('text')
             print(id_1c)
             print(text)
-            log.debug('{} {}'.format(id_1c, text))
+            log.error('{} {}'.format(id_1c, text))
 
             if not id_1c or not text or len(text) == 0:
                 continue
 
             user = User.objects.filter(id_1c=id_1c).first()
             print(user.id)
-            log.debug('user {}'.format(user.id))
+            log.error('user {}'.format(user.id))
             if not user or not user.telegram_id:
                 continue
 
