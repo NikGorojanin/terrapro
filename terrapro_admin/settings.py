@@ -96,7 +96,7 @@ Q_CLUSTER = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'terra_pro',
+        'NAME': 'terrapro',
         'HOST': '68.183.125.203',
         'PORT': 5432,
         'USER': 'terra_pro_user',

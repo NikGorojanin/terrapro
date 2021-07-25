@@ -14,7 +14,7 @@ class AccountManager:
             payload = account_info.get('payload', {})
             phone = payload.get('phone_number')
             id_1c = payload.get('id_1c')
-            id_1c = phone
+
             if not phone or not id_1c:
                 continue
 

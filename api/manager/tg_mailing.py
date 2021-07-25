@@ -1,5 +1,4 @@
 import time
-from datetime import datetime
 
 from django.conf import settings
 
@@ -10,6 +9,7 @@ from api.services.telegram import TelegramService
 class TelegramMailing:
     @classmethod
     def run_mailing(cls, mailing_data):
+
         telegram_service = TelegramService()
 
         for data in mailing_data:
