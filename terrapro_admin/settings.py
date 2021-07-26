@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'django_q',
 
     'account.apps.AccountConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'post.apps.PostConfig',
+    'city.apps.CityConfig',
+    'branch.apps.BranchConfig',
 ]
 
 MIDDLEWARE = [

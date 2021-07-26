@@ -9,6 +9,7 @@ class Post(BaseModel):
     text_rus = models.CharField(max_length=2000, null=True, blank=True)
     text_eng = models.CharField(max_length=2000, null=True, blank=True)
     text_uzb = models.CharField(max_length=2000, null=True, blank=True)
+    desposition = models.IntegerField(default=0)
     tg_image_id = models.CharField(max_length=200, null=True, blank=True)
     tg_video_id = models.CharField(max_length=200, null=True, blank=True)
     tg_document_id = models.CharField(max_length=200, null=True, blank=True)
