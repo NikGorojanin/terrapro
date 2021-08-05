@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from django_q.tasks import async_task
+from django_q.tasks import async_task, result
 
 from api.serializers.account import AccountSerializer
 from api.manager.account import AccountManager
@@ -13,6 +13,9 @@ class AccountView(APIView):
         serializer = AccountSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        async_task(AccountManager.save_or_update, serializer.validated_data)
+        task_id = async_task(AccountManager.save_or_update, serializer.validated_data)
+
+        task_status = result(task_id)
+        print('{} {}'.format(task_id, task_status))
 
         return Response(status=200)

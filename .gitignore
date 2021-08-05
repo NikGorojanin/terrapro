@@ -21,3 +21,4 @@ __pycache__
 *local.sh
 
 terrapro_admin/local_settings.py
+log

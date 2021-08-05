@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load html_attrs %}
+
+{% block content %}
+<form role="form" method="post" enctype="multipart/form-data" novalidate>
+{% csrf_token %}
+    <div class="post_form__contaner">
+        <div class="card">
+            <div class="card-header">
+                Добавление поста
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    {{ form.text_rus.label_tag }}
+                    {{ form.text_rus|html_attrs:'"class": "form-control"' }}
+                    {{ form.text_rus.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.text_eng.label_tag }}
+                    {{ form.text_eng|html_attrs:'"class": "form-control"' }}
+                    {{ form.text_eng.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.text_uzb.label_tag }}
+                    {{ form.text_uzb|html_attrs:'"class": "form-control"' }}
+                    {{ form.text_uzb.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.desposition.label_tag }}
+                    {{ form.desposition|html_attrs:'"class": "form-control"' }}
+                    {{ form.desposition.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.image.label_tag }}
+                    {{ form.image|html_attrs:'"class": "form-control"' }}
+                    {{ form.image.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.video.label_tag }}
+                    {{ form.video|html_attrs:'"class": "form-control"' }}
+                    {{ form.video.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.document.label_tag }}
+                    {{ form.document|html_attrs:'"class": "form-control"' }}
+                    {{ form.document.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.is_published.label_tag }}
+                    {{ form.is_published|html_attrs:'"class": "form-control"' }}
+                    {{ form.is_published.errors }}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

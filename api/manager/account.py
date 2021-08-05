@@ -1,19 +1,25 @@
+import logging
 from datetime import datetime
 
 from api.models import Account
 from account.models import User
 
+log = logging.getLogger(__name__)
+
 
 class AccountManager:
     @classmethod
     def save_or_update(cls, accounts_data):
+        log.debug('Run add account with {} rows'.format(len(accounts_data)))
+        print('Run add account with {} rows'.format(len(accounts_data)))
+
         for i, account_info in enumerate(accounts_data):
             if 'payload' not in account_info:
                 continue
 
             payload = account_info.get('payload', {})
             phone = payload.get('phone_number')
-            id_1c = payload.get('id_1c')
+            id_1c = payload.get('phone_number')
 
             if not phone or not id_1c:
                 continue

@@ -87,10 +87,11 @@ WSGI_APPLICATION = 'terrapro_admin.wsgi.application'
 # More details https://django-q.readthedocs.io/en/latest/configure.html
 Q_CLUSTER = {
     'name': 'terrapro_admin',
-    'workers': 2,
+    'workers': 4,
     'max_attempts': 1,
-    'ack_failures': True,
-    'orm': 'default',  # Use Django's ORM + database for broker
+    'retry': 1200,
+    'poll': 1,
+    'orm': 'qcluster',  # Use Django's ORM + database for broker
 }
 
 # Database
@@ -100,6 +101,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'terrapro',
+        'HOST': '68.183.125.203',
+        'PORT': 5432,
+        'USER': 'terra_pro_user',
+        'PASSWORD': 'Jfn7Fjrk!ds',
+    },
+    'qcluster': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'terrapro_cluster',
         'HOST': '68.183.125.203',
         'PORT': 5432,
         'USER': 'terra_pro_user',
@@ -156,6 +165,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BOT_TOKEN = '357186124:AAEdOhyhP25bcCjcMUp3NprEuabjLNbw-qg'
+TELEGRAM_CHAT_ID = '-1001404598288'
+
 SECONDS_BETWEEN_SENDING_MESSAGE = 2
 
 LOG_DIR = os.path.join(BASE_DIR, 'log')

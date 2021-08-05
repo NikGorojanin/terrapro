@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="buttons__container">
+    <div class="post_list__container">
         <div class="card">
             <div class="card-header">
                 <div class="card-header-buttons-container">
-                    <button type="button" class="btn btn-block btn-success btn-xs btn-create">
+                    <a href="{% url 'post:create' %}" class="btn btn-block btn-success btn-xs btn-create">
                         Добавить пост
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="card-body">

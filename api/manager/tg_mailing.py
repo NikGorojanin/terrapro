@@ -15,6 +15,8 @@ class TelegramMailing:
     def run_mailing(cls, mailing_data):
         telegram_service = TelegramService()
 
+        log.debug('Run telegram mailing with {} users'.format(len(mailing_data)))
+
         for data in mailing_data:
             id_1c = data.get('id')
             text = data.get('text')
