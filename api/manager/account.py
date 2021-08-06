@@ -1,23 +1,16 @@
 import logging
 from datetime import datetime
 
-from django.db import transaction
-
 from api.models import Account
 from account.models import User
 
-log = logging.getLogger('account')
+log = logging.getLogger(__name__)
 
 
 class AccountManager:
     @classmethod
     def save_or_update(cls, accounts_data):
-        log.debug('Run add account with {} rows'.format(len(accounts_data)))
-        print('Run add account with {} rows'.format(len(accounts_data)))
-
         for account_info in accounts_data:
-            log.debug('Add account with data: {}'.format(account_info))
-
             if 'payload' not in account_info:
                 continue
 

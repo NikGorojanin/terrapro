@@ -193,18 +193,18 @@ LOGGING = {
             'formatter': 'verbose',
             'encoding': 'utf-8',
         },
+        'info.log': {
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(LOG_DIR, 'debug.log'),
+            'formatter': 'verbose',
+            'encoding': 'utf-8',
+        },
     },
     'loggers': {
         '': {
             'handlers': ['error.log', 'debug.log'],
         },
-        'account': {
-            'handlers': ['error.log', 'debug.log'],
-        }
-    },
-    'root': {
-        'handlers': ['debug.log'],
-        'level': 'INFO',
     },
 }
 
