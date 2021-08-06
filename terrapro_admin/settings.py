@@ -83,20 +83,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'terrapro_admin.wsgi.application'
 
-# Configure your Q cluster
-# More details https://django-q.readthedocs.io/en/latest/configure.html
-Q_CLUSTER = {
-    'name': 'terrapro_admin',
-    'workers': 4,
-    'max_attempts': 1,
-    'retry': 1200,
-    'poll': 1,
-    'orm': 'qcluster',  # Use Django's ORM + database for broker
-}
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -114,6 +102,17 @@ DATABASES = {
         'USER': 'terra_pro_user',
         'PASSWORD': 'Jfn7Fjrk!ds',
     }
+}
+
+# Configure your Q cluster
+# More details https://django-q.readthedocs.io/en/latest/configure.html
+Q_CLUSTER = {
+    'name': 'terrapro_admin',
+    'workers': 3,
+    'max_attempts': 1,
+    'retry': 1200,
+    'poll': 1,
+    'orm': 'qcluster',  # Use Django's ORM + database for broker
 }
 
 
@@ -184,9 +183,6 @@ LOGGING = {
             'level': 'ERROR',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(LOG_DIR, 'error.log'),
-            'when': 'D',
-            'interval': 30,
-            'backupCount': 6,
             'formatter': 'verbose',
             'encoding': 'utf-8',
         },
@@ -194,9 +190,6 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(LOG_DIR, 'debug.log'),
-            'when': 'D',
-            'interval': 30,
-            'backupCount': 6,
             'formatter': 'verbose',
             'encoding': 'utf-8',
         },
@@ -205,6 +198,9 @@ LOGGING = {
         '': {
             'handlers': ['error.log', 'debug.log'],
         },
+        'account': {
+            'handlers': ['error.log', 'debug.log'],
+        }
     },
     'root': {
         'handlers': ['debug.log'],

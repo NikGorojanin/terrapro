@@ -13,6 +13,6 @@ class TelegramMailingView(APIView):
         serializer = TelegramMailingSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        async_task(TelegramMailing.run_mailing, serializer.validated_data)
+        task_id = async_task(TelegramMailing.run_mailing, serializer.validated_data)
 
-        return Response(status=200)
+        return Response(status=200, data={'status': 'SUCCESS'})

@@ -15,7 +15,4 @@ class AccountView(APIView):
 
         task_id = async_task(AccountManager.save_or_update, serializer.validated_data)
 
-        task_status = result(task_id)
-        print('{} {}'.format(task_id, task_status))
-
-        return Response(status=200)
+        return Response(status=200, data={'status': 'SUCCESS'})
