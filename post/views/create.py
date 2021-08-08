@@ -6,7 +6,7 @@ from api.models import Post
 from post.form import PostForm
 
 
-class PostView(View):
+class CreateView(View):
     def get(self, request):
         form = PostForm()
 
@@ -25,7 +25,8 @@ class PostView(View):
             desposition=form.cleaned_data.get('desposition'),
             tg_image_id=form.cleaned_data.get('image'),
             tg_video_id=form.cleaned_data.get('video'),
-            tg_document_id=form.cleaned_data.get('document')
+            tg_document_id=form.cleaned_data.get('document'),
+            is_published=form.cleaned_data.get('is_published'),
         )
         post.save()
 

@@ -8,4 +8,4 @@ class PostList(View):
     def get(self, request):
         posts = Post.objects.all()
 
-        return render(request, template_name='list.html', context={'posts': posts})
+        return render(request, template_name='posts.html', context={'posts': posts})

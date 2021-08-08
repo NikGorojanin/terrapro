@@ -1,0 +1,20 @@
+.edit-td {
+    width: 10%;
+}
+
+.td-content {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header-buttons-container {
+    width: 30%;
+}
+
+.edit-btn, .delete-btn {
+    width: 60%;
+}
+
+.card-info {
+    width: 50%;
+}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load html_attrs %}
+
+{% block content %}
+<form role="form" method="post" enctype="multipart/form-data" novalidate>
+{% csrf_token %}
+    <div class="post_form__contaner">
+        <div class="card">
+            <div class="card-header">
+                Добавление филиала
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    {{ form.address_rus.label_tag }}
+                    {{ form.address_rus|html_attrs:'"class": "form-control"' }}
+                    {{ form.address_rus.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.address_eng.label_tag }}
+                    {{ form.address_eng|html_attrs:'"class": "form-control"' }}
+                    {{ form.address_eng.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.address_uzb.label_tag }}
+                    {{ form.address_uzb|html_attrs:'"class": "form-control"' }}
+                    {{ form.address_uzb.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.cites.label_tag }}
+                    {{ form.cites|html_attrs:'"class": "form-control"' }}
+                    {{ form.cites.errors }}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

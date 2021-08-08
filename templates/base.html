@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static "vendor/sweetalert2/dist/sweetalert2.css" %}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{% static "vendor/daterangepicker/daterangepicker.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
 
 </head>
 <body class="hold-transition layout-top-nav">
@@ -32,10 +33,10 @@
                         <a href="{% url 'post:list' %}" class="nav-link">Посты</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Города</a>
+                        <a href="{% url 'city:list' %}" class="nav-link">Города</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Филиалы</a>
+                        <a href="{% url 'branch:list' %}" class="nav-link">Филиалы</a>
                     </li>
                 </ul>
             </div>
@@ -83,6 +84,7 @@
 <script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
 <script src="{% static "vendor/sweetalert2/dist/sweetalert2.js" %}"></script>
 <script src="{% static "vendor/sweetalert2/dist/sweetalert2.all.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
 
 </body>
 </html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load html_attrs %}
+
+{% block content %}
+<form role="form" method="post" enctype="multipart/form-data" novalidate>
+{% csrf_token %}
+    <div class="post_form__contaner">
+        <div class="card">
+            <div class="card-header">
+                Добавление города
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    {{ form.en_name.label_tag }}
+                    {{ form.en_name|html_attrs:'"class": "form-control"' }}
+                    {{ form.en_name.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.ru_name.label_tag }}
+                    {{ form.ru_name|html_attrs:'"class": "form-control"' }}
+                    {{ form.ru_name.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.uz_name.label_tag }}
+                    {{ form.uz_name|html_attrs:'"class": "form-control"' }}
+                    {{ form.uz_name.errors }}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

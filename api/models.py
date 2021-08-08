@@ -14,6 +14,15 @@ class Post(BaseModel):
     tg_video_id = models.CharField(max_length=200, null=True, blank=True)
     tg_document_id = models.CharField(max_length=200, null=True, blank=True)
 
+    def to_dict(self):
+        return {
+            'is_published': self.is_published,
+            'text_rus': self.text_rus,
+            'text_uzb': self.text_uzb,
+            'text_eng': self.text_eng,
+            'desposition': self.desposition,
+        }
+
     class Meta:
         db_table = 'posts'
 
@@ -31,19 +40,22 @@ class FeedbackMessage(BaseModel):
 
 
 class Cite(BaseModel):
-    en_name = models.CharField(max_length=100)
-    ru_name = models.CharField(max_length=100, null=True, blank=True)
-    uz_name = models.CharField(max_length=100, null=True, blank=True)
+    en_name = models.CharField(verbose_name='Название на английском', max_length=100)
+    ru_name = models.CharField(verbose_name='Название на русском', max_length=100, null=True, blank=True)
+    uz_name = models.CharField(verbose_name='Название на узбекском', max_length=100, null=True, blank=True)
 
     class Meta:
         db_table = 'cites'
 
+    def __str__(self):
+        return self.ru_name
+
 
 class Branche(BaseModel):
-    address_rus = models.CharField(max_length=500)
-    address_eng = models.CharField(max_length=500, null=True, blank=True)
-    address_uzb = models.CharField(max_length=500, null=True, blank=True)
-    cites = models.ForeignKey(Cite, related_name='branches', on_delete=models.DO_NOTHING, null=True)
+    address_rus = models.CharField(verbose_name='Адресс на русском', max_length=500)
+    address_eng = models.CharField(verbose_name='Адресс на английском', max_length=500, null=True, blank=True)
+    address_uzb = models.CharField(verbose_name='Адресс на узбекском', max_length=500, null=True, blank=True)
+    cites = models.ForeignKey(Cite, related_name='branches', on_delete=models.DO_NOTHING, null=True, blank=True)
 
     class Meta:
         db_table = 'branches'

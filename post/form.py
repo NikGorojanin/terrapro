@@ -7,7 +7,7 @@ from post.utils import TelegramCacheManager
 
 
 class PostForm(forms.Form):
-    is_published = forms.BooleanField(label='Опубликовать', initial=True)
+    is_published = forms.BooleanField(label='Опубликовать', initial=True, required=False)
     text_rus = forms.CharField(label='Текст на русском', widget=forms.Textarea)
     text_eng = forms.CharField(label='Текст на английском', widget=forms.Textarea, required=False)
     text_uzb = forms.CharField(label='Текст на узбекском', widget=forms.Textarea, required=False)
@@ -24,3 +24,7 @@ class PostForm(forms.Form):
 
     def clean_document(self):
         return TelegramCacheManager().document_cache(document=self.cleaned_data['document'])
+
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        pass

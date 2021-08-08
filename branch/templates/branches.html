@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="post_list__container">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-buttons-container">
+                    <a href="{% url 'branch:create' %}" class="btn btn-block btn-outline-success btn-create">
+                        Добавить филиал <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 20px">ID</th>
+                            <th>Адрес</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for branch in branches %}
+                            <tr>
+                                <td>{{ branch.id }}</td>
+                                <td>{{ branch.address_rus }}</td>
+                                <td class="edit-td">
+                                    <div class="td-content">
+                                        <a href="{% url 'branch:edit' branch_id=branch.id %}" class="btn btn-block btn-outline-primary edit-btn">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="edit-td">
+                                    <div class="td-content">
+                                        <a href="{% url 'branch:delete' branch_id=branch.id %}" class="btn btn-block btn-outline-danger delete-btn">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -8,7 +8,7 @@
                 <div class="inner">
                     <h3>{{ users_count }}</h3>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="ion ion-person-add"></i>
                     </div>
                     <div class="box-title">
                         Пользователей
@@ -17,6 +17,35 @@
             </div>
         </div>
         <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ cities }}</h3>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <div class="box-title">
+                        Городов
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ branches }}</h3>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <div class="box-title">
+                        Филиалов
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="card card-info card-report">
@@ -24,7 +53,8 @@
             <h3 class="card-title">Выгрузка отчета</h3>
         </div>
         <div class="card-body">
-            <form role="form" action="" method="post" novalidate>
+            <form role="form" action="{% url 'report:accounts' %}" method="post" novalidate>
+                {% csrf_token %}
                 <div class="form-group">
                     <label>Период</label>
 
