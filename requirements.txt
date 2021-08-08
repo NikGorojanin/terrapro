@@ -20,3 +20,4 @@ tornado==6.1
 tzlocal==2.1
 uWSGI==2.0.19.1
 wcwidth==0.2.5
+xlsxwriter==1.4.5
