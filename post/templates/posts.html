@@ -16,6 +16,8 @@
                         <tr>
                             <th style="width: 20px">ID</th>
                             <th>Текст</th>
+                            <th>Опубликован</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -24,6 +26,7 @@
                             <tr>
                                 <td>{{ post.id }}</td>
                                 <td>{{ post.text_rus }}</td>
+                                <td>{% if post.is_published %}Да{% endif %}</td>
                                 <td class="edit-td">
                                     <div class="td-content">
                                         <a href="{% url 'post:edit' post_id=post.id %}" class="btn btn-block btn-outline-primary edit-btn">
