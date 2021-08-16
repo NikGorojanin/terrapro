@@ -52,9 +52,9 @@ class Cite(BaseModel):
 
 
 class Branche(BaseModel):
-    address_rus = models.CharField(verbose_name='Адресс на русском', max_length=500)
-    address_eng = models.CharField(verbose_name='Адресс на английском', max_length=500, null=True, blank=True)
-    address_uzb = models.CharField(verbose_name='Адресс на узбекском', max_length=500, null=True, blank=True)
+    address_rus = models.CharField(verbose_name='Адресс на русском', max_length=2000)
+    address_eng = models.CharField(verbose_name='Адресс на английском', max_length=2000, null=True, blank=True)
+    address_uzb = models.CharField(verbose_name='Адресс на узбекском', max_length=2000, null=True, blank=True)
     cites = models.ForeignKey(Cite, related_name='branches', on_delete=models.DO_NOTHING, null=True, blank=True)
 
     class Meta:
