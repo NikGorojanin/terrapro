@@ -64,13 +64,13 @@ class Branche(BaseModel):
 class Account(BaseModel):
     user = models.ForeignKey(User, related_name='accounts', on_delete=models.DO_NOTHING, null=True, blank=True)
     barcode = models.CharField(max_length=100, null=True, blank=True)
-    phone_number = models.CharField(max_length=100)
-    total_balance = models.FloatField(default=0.0)
-    total_spent_monthly = models.FloatField(default=0.0)
-    total_spent_yearly = models.FloatField(default=0.0)
-    total_spent = models.FloatField(default=0.0)
+    phone_number = models.CharField(max_length=100, null=True, blank=True)
+    total_balance = models.FloatField(default=0.0, null=True, blank=True)
+    total_spent_monthly = models.FloatField(default=0.0, null=True, blank=True)
+    total_spent_yearly = models.FloatField(default=0.0, null=True, blank=True)
+    total_spent = models.FloatField(default=0.0, null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
-    id_1c = models.CharField(verbose_name='1C ID', max_length=100, unique=True, db_index=True)
+    id_1c = models.CharField(verbose_name='1C ID', max_length=100, unique=True, db_index=True, null=True, blank=True)
     barcode_img = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
