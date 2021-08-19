@@ -12,23 +12,39 @@
             <div class="card-body">
                 <div class="form-group">
                     {{ form.address_rus.label_tag }}
-                    {{ form.address_rus|html_attrs:'"class": "form-control"' }}
-                    {{ form.address_rus.errors }}
+                    {% if form.address_rus.errors %}
+                        {{ form.address_rus|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.address_rus|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.address_rus.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.address_uzb.label_tag }}
-                    {{ form.address_uzb|html_attrs:'"class": "form-control"' }}
-                    {{ form.address_uzb.errors }}
+                    {% if form.address_uzb.errors %}
+                        {{ form.address_uzb|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.address_uzb|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.address_uzb.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.address_eng.label_tag }}
-                    {{ form.address_eng|html_attrs:'"class": "form-control"' }}
-                    {{ form.address_eng.errors }}
+                    {% if form.address_eng.errors %}
+                        {{ form.address_eng|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.address_eng|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.address_eng.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.cites.label_tag }}
-                    {{ form.cites|html_attrs:'"class": "form-control"' }}
-                    {{ form.cites.errors }}
+                    {% if form.cites.errors %}
+                        {{ form.cites|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.cites|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.address_eng.errors }}</h5>
                 </div>
             </div>
             <div class="card-footer">

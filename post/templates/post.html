@@ -12,43 +12,70 @@
             <div class="card-body">
                 <div class="form-group">
                     {{ form.text_rus.label_tag }}
-                    {{ form.text_rus|html_attrs:'"class": "form-control"' }}
-                    {{ form.text_rus.errors }}
+                    {% if form.text_rus.errors %}
+                        {{ form.text_rus|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.text_rus|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.text_rus.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.text_eng.label_tag }}
-                    {{ form.text_eng|html_attrs:'"class": "form-control"' }}
-                    {{ form.text_eng.errors }}
+                    {% if form.text_eng.errors %}
+                        {{ form.text_eng|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.text_eng|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.text_eng.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.text_uzb.label_tag }}
-                    {{ form.text_uzb|html_attrs:'"class": "form-control"' }}
-                    {{ form.text_uzb.errors }}
+                    {% if form.text_uzb.errors %}
+                        {{ form.text_uzb|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.text_uzb|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.text_uzb.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.desposition.label_tag }}
-                    {{ form.desposition|html_attrs:'"class": "form-control"' }}
-                    {{ form.desposition.errors }}
+                    {% if form.desposition.errors %}
+                        {{ form.desposition|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.desposition|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.desposition.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.image.label_tag }}
-                    {{ form.image|html_attrs:'"class": "form-control"' }}
-                    {{ form.image.errors }}
+                    {% if form.image.errors %}
+                        {{ form.image|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.image|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.image.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.video.label_tag }}
-                    {{ form.video|html_attrs:'"class": "form-control"' }}
-                    {{ form.video.errors }}
+                    {% if form.video.errors %}
+                        {{ form.video|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.video|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.video.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.document.label_tag }}
-                    {{ form.document|html_attrs:'"class": "form-control"' }}
-                    {{ form.document.errors }}
+                    {% if form.document.errors %}
+                        {{ form.document|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.document|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.document.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.is_published.label_tag }}
                     {{ form.is_published|html_attrs:'"class": "form-control"' }}
-                    {{ form.is_published.errors }}
                 </div>
             </div>
             <div class="card-footer">

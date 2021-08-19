@@ -8,7 +8,7 @@ from post.utils import TelegramCacheManager
 
 class PostForm(forms.Form):
     is_published = forms.BooleanField(label='Опубликовать', initial=True, required=False)
-    text_rus = forms.CharField(label='Текст на русском', widget=forms.Textarea)
+    text_rus = forms.CharField(label='Текст на русском', widget=forms.Textarea, required=False)
     text_eng = forms.CharField(label='Текст на английском', widget=forms.Textarea, required=False)
     text_uzb = forms.CharField(label='Текст на узбекском', widget=forms.Textarea, required=False)
     desposition = forms.IntegerField(label='Позиция', initial=0)

@@ -12,18 +12,30 @@
             <div class="card-body">
                 <div class="form-group">
                     {{ form.ru_name.label_tag }}
-                    {{ form.ru_name|html_attrs:'"class": "form-control"' }}
-                    {{ form.ru_name.errors }}
+                    {% if form.ru_name.errors %}
+                        {{ form.ru_name|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.ru_name|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.ru_name.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.uz_name.label_tag }}
-                    {{ form.uz_name|html_attrs:'"class": "form-control"' }}
-                    {{ form.uz_name.errors }}
+                    {% if form.uz_name.errors %}
+                        {{ form.uz_name|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.uz_name|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.uz_name.errors }}</h5>
                 </div>
                 <div class="form-group">
                     {{ form.en_name.label_tag }}
-                    {{ form.en_name|html_attrs:'"class": "form-control"' }}
-                    {{ form.en_name.errors }}
+                    {% if form.en_name.errors %}
+                        {{ form.en_name|html_attrs:'"class": "form-control is-invalid"' }}
+                    {% else %}
+                        {{ form.en_name|html_attrs:'"class": "form-control"' }}
+                    {% endif %}
+                    <h5 class="text-red">{{ form.en_name.errors }}</h5>
                 </div>
             </div>
             <div class="card-footer">

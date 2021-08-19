@@ -57,6 +57,13 @@ class Branche(BaseModel):
     address_uzb = models.CharField(verbose_name='Адресс на узбекском', max_length=5000, null=True, blank=True)
     cites = models.ForeignKey(Cite, related_name='branches', on_delete=models.DO_NOTHING, null=True, blank=True)
 
+    @property
+    def city(self):
+        if self.cites:
+            return self.cites.ru_name
+
+        return '-'
+
     class Meta:
         db_table = 'branches'
 

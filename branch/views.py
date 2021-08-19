@@ -8,7 +8,7 @@ from branch.form import BranchForm
 
 class ListView(View):
     def get(self, request):
-        branches = Branche.objects.all()
+        branches = Branche.objects.order_by('id')
 
         return render(request, 'branches.html', context={'branches': branches})
 
