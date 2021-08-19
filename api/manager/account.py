@@ -2,7 +2,6 @@ import logging
 from datetime import datetime
 
 from api.models import Account
-from account.models import User
 
 log = logging.getLogger(__name__)
 
@@ -46,9 +45,7 @@ class AccountManager:
 
                 existing_account.save()
             else:
-                user = User.get_or_create(id_1c, phone)
                 account = Account(
-                    user=user,
                     barcode=payload.get('barcode'),
                     phone_number=phone,
                     total_balance=total_balance if total_balance != '' else 0.0,
