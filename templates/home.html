@@ -73,4 +73,17 @@
         </div>
         <!-- /.card-body -->
     </div>
+
+    <div class="card card-info card-report">
+        <div class="card-header">
+            <h3 class="card-title">Отчет по блокировакам бота</h3>
+        </div>
+        <div class="card-body">
+            <form role="form" action="{% url 'report:user_block' %}" method="post" novalidate>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info">Выгрузить</button>
+            </form>
+        </div>
+        <!-- /.card-body -->
+    </div>
 {% endblock %}

@@ -3,6 +3,10 @@ from datetime import datetime
 
 class BaseReportManager:
     def __init__(self, *args, **kwargs):
+        self.daterange = None
+        self.date_from = None
+        self.date_to = None
+
         report_daterange = kwargs.get('report_daterange')
 
         if report_daterange:
