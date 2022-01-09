@@ -94,26 +94,26 @@ DATABASES = {
         'USER': 'terra_pro_user',
         'PASSWORD': 'Jfn7Fjrk!ds',
     },
-    'qcluster': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'terrapro_cluster',
-        'HOST': '68.183.125.203',
-        'PORT': 5432,
-        'USER': 'terra_pro_user',
-        'PASSWORD': 'Jfn7Fjrk!ds',
-    }
+    # 'qcluster': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'terrapro_cluster',
+    #     'HOST': '68.183.125.203',
+    #     'PORT': 5432,
+    #     'USER': 'terra_pro_user',
+    #     'PASSWORD': 'Jfn7Fjrk!ds',
+    # }
 }
 
 # Configure your Q cluster
 # More details https://django-q.readthedocs.io/en/latest/configure.html
-Q_CLUSTER = {
-    'name': 'terrapro_admin',
-    'workers': 3,
-    'max_attempts': 1,
-    'retry': 1200,
-    'poll': 1,
-    'orm': 'qcluster',  # Use Django's ORM + database for broker
-}
+# Q_CLUSTER = {
+#     'name': 'terrapro_admin',
+#     'workers': 3,
+#     'max_attempts': 1,
+#     'retry': 1200,
+#     'poll': 1,
+#     'orm': 'qcluster',  # Use Django's ORM + database for broker
+# }
 
 
 # Password validation

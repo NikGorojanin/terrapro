@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+import time
 
 from api.models import Account
 
@@ -9,6 +10,8 @@ log = logging.getLogger(__name__)
 class AccountManager:
     @classmethod
     def save_or_update(cls, accounts_data):
+        time.sleep(1)
+
         for account_info in accounts_data:
             if 'payload' not in account_info:
                 continue
@@ -35,6 +38,7 @@ class AccountManager:
             existing_account = Account.objects.filter(id_1c=id_1c).first()
 
             if existing_account:
+                log.debug('Update account with id: {}'.format(id_1c))
                 existing_account.phone = phone
                 existing_account.barcode = barcode
                 existing_account.total_balance = total_balance
@@ -45,6 +49,7 @@ class AccountManager:
 
                 existing_account.save()
             else:
+                log.debug('Create account with id: {}'.format(id_1c))
                 account = Account(
                     barcode=payload.get('barcode'),
                     phone_number=phone,
